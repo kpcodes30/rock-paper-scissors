@@ -17,17 +17,17 @@ function getComputerChoice() {
 
 function getWinner(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
-    return "It's a tie!";
+    return "It's a tie! 🤝";
   } else if (
     (playerChoice === "Rock" && computerChoice === "Scissors") ||
     (playerChoice === "Paper" && computerChoice === "Rock") ||
     (playerChoice === "Scissors" && computerChoice === "Paper")
   ) {
     playerScore++;
-    return "You win!";
+    return "You win! 🎉";
   } else {
     computerScore++;
-    return "You lose!";
+    return "You lose! 😢";
   }
 }
 function playGame(playerChoice, computerChoice) {
@@ -39,11 +39,11 @@ function playGame(playerChoice, computerChoice) {
 }
 function endGame() {
   if (playerScore > computerScore) {
-    resultDiv.textContent = "Congratulations! You won the game!";
+    resultDiv.textContent = "Congratulations! You won the game! 🏆";
   } else if (computerScore > playerScore) {
-    resultDiv.textContent = "Computer wins the game! Better luck next time!";
+    resultDiv.textContent = "Computer wins the game! Better luck next time! 💻";
   } else {
-    resultDiv.textContent = "It's a tie! No one wins the game!";
+    resultDiv.textContent = "It's a tie! No one wins the game! 🤝";
   }
   scoreBoard.style.display = "none";
   resultDiv.style.display = "block";
@@ -60,7 +60,7 @@ function showResultText(playerChoice, computerChoice, result) {
     endGame();
     choicesButtons.forEach((button) => (button.disabled = true));
     startButton.style.display = "block";
-    startButton.textContent = "Play Again";
+    startButton.textContent = "Play Again 🔁";
   } else {
     resultDiv.textContent = `You chose ${playerChoice}, Computer chose ${computerChoice}. ${result}`;
   }
@@ -72,7 +72,7 @@ function startGame() {
   computerScore = 0;
   scoreBoard.style.display = "block";
   roundCounter.style.display = "block";
-  resultDiv.textContent = "Ready to play? Click a choice to begin!";
+  resultDiv.textContent = "Ready to play? Click a choice to begin! 🚦";
   updateScoreBoard(playerScore, computerScore);
   updateRoundCounter();
   choicesButtons.forEach((button) => (button.disabled = false));
@@ -88,9 +88,9 @@ choicesButtons.forEach((button) => {
     playGame(playerChoice, computerChoice);
   });
 });
- 
+
 //initial UI setup
 choicesButtons.forEach((button) => (button.disabled = true));
 scoreBoard.style.display = "none";
 roundCounter.style.display = "none";
-resultDiv.textContent = "Welcome! Click 'Start Game' to begin.";
+resultDiv.textContent = "Welcome! Click 'Start Game' to begin. 👋";
