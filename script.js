@@ -1,110 +1,96 @@
-// DOM Elements
-const startBtn = document.querySelector(".start-btn");
+const startButton = document.querySelector(".start-btn");
 const choicesButtons = document.querySelectorAll(".choices button");
-const roundCounter = document.querySelector(".round-counter");
 const scoreBoard = document.querySelector(".score-board");
 const resultDiv = document.querySelector(".result");
+const roundCounter = document.querySelector(".round-counter");
 
 let round = 0;
+let totalRounds = 5;
 let playerScore = 0;
 let computerScore = 0;
-const totalRounds = 5;
+const choices = ["Rock", "Paper", "Scissors"];
 
 function getComputerChoice() {
-  const choices = ["Rock", "Paper", "Scissors"];
-  return choices[Math.floor(Math.random() * choices.length)];
+  let randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
 }
 
-function determineWinner(playerChoice, computerChoice) {
-  if (playerChoice === computerChoice) return "draw";
-  if (
+function getWinner(playerChoice, computerChoice) {
+  if (playerChoice === computerChoice) {
+    return "It's a tie!";
+  } else if (
     (playerChoice === "Rock" && computerChoice === "Scissors") ||
     (playerChoice === "Paper" && computerChoice === "Rock") ||
     (playerChoice === "Scissors" && computerChoice === "Paper")
   ) {
-    return "player";
-  }
-  return "computer";
-}
-
-// UI update functions
-function updateRoundCounter() {
-  roundCounter.textContent = `Round ${round} of ${totalRounds}`;
-}
-
-function updateScoreBoard() {
-  scoreBoard.textContent = `You: ${playerScore} | Computer: ${computerScore}`;
-}
-
-function showResultText(msg) {
-  resultDiv.textContent = msg;
-  resultDiv.style.opacity = 0.2;
-  setTimeout(() => {
-    resultDiv.style.opacity = 1;
-  }, 120);
-}
-
-function endGame() {
-  choicesButtons.forEach((btn) => (btn.disabled = true));
-  startBtn.textContent = "Play Again";
-  startBtn.style.display = "inline-block";
-
-  if (playerScore > computerScore) {
-    showResultText("🏆 Congratulations, you won the match!");
-  } else if (playerScore < computerScore) {
-    showResultText("🤖 Computer takes the win this time!");
+    playerScore++;
+    return "You win!";
   } else {
-    showResultText("🤝 It's a tie overall!");
+    computerScore++;
+    return "You lose!";
   }
 }
-
-// Main game logic
-function playRound(playerChoice) {
-  if (round >= totalRounds) return;
-
-  const computerChoice = getComputerChoice();
-  const winner = determineWinner(playerChoice, computerChoice);
-
-  if (winner === "player") playerScore++;
-  else if (winner === "computer") computerScore++;
-
-  round++;
+function playGame(playerChoice, computerChoice) {
+  startButton.style.display = "none";
+  const result = getWinner(playerChoice, computerChoice);
+  updateScoreBoard(playerScore, computerScore);
   updateRoundCounter();
-  updateScoreBoard();
-
-  let roundMsg = `You chose ${playerChoice}, Computer chose ${computerChoice}. `;
-  if (winner === "player") roundMsg += "You win this round! 🎉";
-  else if (winner === "computer") roundMsg += "Computer wins this round! 💻";
-  else roundMsg += "It's a tie!";
-  showResultText(roundMsg);
-
-  if (round === totalRounds) {
+  showResultText(playerChoice, computerChoice, result);
+}
+function endGame() {
+  if (playerScore > computerScore) {
+    resultDiv.textContent = "Congratulations! You won the game!";
+  } else if (computerScore > playerScore) {
+    resultDiv.textContent = "Computer wins the game! Better luck next time!";
+  } else {
+    resultDiv.textContent = "It's a tie! No one wins the game!";
+  }
+  scoreBoard.style.display = "none";
+  resultDiv.style.display = "block";
+}
+function updateScoreBoard(playerScore, computerScore) {
+  scoreBoard.textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
+}
+function updateRoundCounter() {
+  roundCounter.textContent = `Round: ${round} Of ${totalRounds}`;
+  round++;
+}
+function showResultText(playerChoice, computerChoice, result) {
+  if (round > totalRounds) {
     endGame();
+    choicesButtons.forEach((button) => (button.disabled = true));
+    startButton.style.display = "block";
+    startButton.textContent = "Play Again";
+  } else {
+    resultDiv.textContent = `You chose ${playerChoice}, Computer chose ${computerChoice}. ${result}`;
   }
 }
-
-function resetGame() {
+function startGame() {
+  startButton.style.display = "none";
   round = 0;
   playerScore = 0;
   computerScore = 0;
+  scoreBoard.style.display = "block";
+  roundCounter.style.display = "block";
+  resultDiv.textContent = "Ready to play? Click a choice to begin!";
+  updateScoreBoard(playerScore, computerScore);
   updateRoundCounter();
-  updateScoreBoard();
-  showResultText("Ready to play? Click a choice to begin!");
-  choicesButtons.forEach((btn) => (btn.disabled = false));
-  startBtn.style.display = "none";
+  choicesButtons.forEach((button) => (button.disabled = false));
 }
 
-// Event Listeners
-startBtn.addEventListener("click", () => {
-  resetGame();
+startButton.addEventListener("click", () => {
+  startGame();
 });
-
-choicesButtons.forEach((btn) => {
-  btn.addEventListener("click", () => playRound(btn.dataset.choice));
+choicesButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const playerChoice = button.textContent;
+    const computerChoice = getComputerChoice();
+    playGame(playerChoice, computerChoice);
+  });
 });
-
-// --- Initial UI setup ---
-choicesButtons.forEach((btn) => (btn.disabled = true));
-updateRoundCounter();
-updateScoreBoard();
-showResultText("Welcome! Click 'Start Game' to begin.");
+ 
+//initial UI setup
+choicesButtons.forEach((button) => (button.disabled = true));
+scoreBoard.style.display = "none";
+roundCounter.style.display = "none";
+resultDiv.textContent = "Welcome! Click 'Start Game' to begin.";
