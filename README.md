@@ -1,27 +1,53 @@
-# Rock Paper Scissors
+# ✊✋✌️ Rock Paper Scissors
 
-A simple console-based Rock-Paper-Scissors game implemented in JavaScript.
+A sleek, interactive Rock-Paper-Scissors game for the browser!
 
-## How to Play
+---
 
-1. Open `index.html` in your web browser.
-2. **Open the browser console** (press F12 or Ctrl+Shift+I, then go to the "Console" tab).
-3. The game will prompt you to enter your choice: `rock`, `paper`, or `scissors`.
-4. Play 5 rounds against the computer.
-5. All game messages, round results, and the final score will appear in the console.
+## 🚀 How to Play
 
-## Files
+1. **Open** `index.html` in your favorite web browser.
+2. Click the **Start Game** button.
+3. Choose **Rock**, **Paper**, or **Scissors** by clicking the buttons.
+4. Play for 5 rounds against the computer.
+5. Watch your score and round results update live on the page.
+6. At the end, see who wins — and play again if you wish!
 
-- `index.html` – Loads the JavaScript file and starts the game.
-- `script.js` – Contains the game logic.
-- `README.md` – Project documentation.
+---
 
-## Requirements
+## 🛠️ Tech Stack
 
-- A modern web browser (Chrome, Firefox, Edge, etc.)
-- No external dependencies required.
+- **HTML5** – Markup structure
+- **CSS3** – Modern, responsive, and dark-themed styling
+- **JavaScript (ES6)** – Game logic and interactivity
 
-## Notes
+---
 
-- All interaction happens via browser prompts and the console.
-- Make sure to keep the console open to follow the game
+## ✨ Features
+
+- Clean, dark-themed UI
+- Animated result messages
+- Responsive design for desktop and mobile
+- No dependencies — just open and play!
+
+---
+
+## 📂 Project Structure
+
+```
+/rock-paper-scissors
+  ├── index.html      # Main HTML file
+  ├── style.css       # All styles
+  ├── script.js       # Game logic
+  └── README.md       # This documentation
+```
+
+---
+
+## 🙌 Credits
+
+Made with 💚 by [kpcodes30](https://github.com/kpcodes30)
+
+---
+
+Enjoy the game!
