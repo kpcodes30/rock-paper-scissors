@@ -1,17 +1,21 @@
 # ✊✋✌️ Rock Paper Scissors
 
-A sleek, interactive Rock-Paper-Scissors game for the browser!
+Basic interactive Rock-Paper-Scissors game for the browser!
 
 ---
 
 ## 🚀 How to Play
 
-1. **Open** `index.html` in your favorite web browser.
-2. Click the **Start Game** button.
-3. Choose **Rock**, **Paper**, or **Scissors** by clicking the buttons.
-4. Play for 5 rounds against the computer.
-5. Watch your score and round results update live on the page.
-6. At the end, see who wins — and play again if you wish!
+1. **Play instantly online:**  
+   👉 [Try it live on GitHub Pages!](https://kpcodes30.github.io/rock-paper-scissors/)
+2. **Or run locally:**
+   - Download or clone this repository.
+   - Open `index.html` in your favorite web browser.
+3. Click the **Start Game** button.
+4. Choose **Rock**, **Paper**, or **Scissors** by clicking the buttons.
+5. Play for 5 rounds against the computer.
+6. Watch your score and round results update live on the page.
+7. At the end, see who wins — and play again if you wish!
 
 ---
 
@@ -27,8 +31,8 @@ A sleek, interactive Rock-Paper-Scissors game for the browser!
 
 - Clean, dark-themed UI
 - Animated result messages
-- Responsive design for desktop and mobile
 - No dependencies — just open and play!
+
 
 ---
 
