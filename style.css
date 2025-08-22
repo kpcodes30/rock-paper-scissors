@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  background: #fc7a69;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+header {
+  font-size: 2.3rem;
+  font-family: "Edu NSW ACT Cursive", cursive;
+  margin-top: 24px;
+  font-weight: 500;
+  color: #1a3a2b;
+  letter-spacing: 0.12em;
+  background: linear-gradient(90deg, #009ddc , #009b72);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.round-counter {
+  margin: 10px;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #222;
+  background: #fff3e0;
+  border-radius: 20px;
+  padding: 8px 24px;
+  letter-spacing: 1px;
+}
+.start-btn {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #6c63ff;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 40px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+.choices button {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  flex-wrap: wrap;
+  border-radius: 55px;
+  cursor: pointer;
+  width: 250px;
+  height: 150px;
+}
+button[data-choice="Rock"] {
+  background-color: #009ddc;
+}
+button[data-choice="Paper"] {
+  background-color: #f26430;
+}
+button[data-choice="Scissors"] {
+  background-color: #009b72;
+}
+
+footer {
+  font-family: "Edu NSW ACT Cursive", cursive;
+  margin-bottom: 10px;
+}
+
+.score-board {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #009ddc , #f26430 );
+  border-radius: 25px;
+  padding: 12px 36px;
+  margin: 18px 0 10px 0;
+  letter-spacing: 2px;
+}
+
+.result {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px 30px;
+  margin-top: 10px;
+  min-height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+}
