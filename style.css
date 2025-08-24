@@ -24,9 +24,33 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
+
+.game-panel {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  padding: 25px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 90%;
+  max-width: 800px;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .round-counter {
   margin: 10px;
   font-size: 1.7rem;
@@ -39,29 +63,34 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 .start-btn {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
   background-color: #222a44;
   border: none;
   border-radius: 30px;
-  padding: 15px 40px;
+  padding: 12px 35px;
   margin: 10px 0;
   cursor: pointer;
 }
 .choices button {
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
   padding: 10px;
-  margin: 10px;
+  margin: 0;
   border: none;
-  flex-wrap: wrap;
-  border-radius: 55px;
+  border-radius: 15px;
   cursor: pointer;
-  width: 250px;
-  height: 150px;
+  width: 120px;
+  height: 80px;
+  transition: transform 0.2s ease;
 }
+
+.choices button:hover {
+  transform: scale(1.05);
+}
+
 button[data-choice="Rock"] {
   background-color: #009ddc;
 }
