@@ -30,13 +30,16 @@ function getWinner(playerChoice, computerChoice) {
     return "You lose! 😢";
   }
 }
+
 function playGame(playerChoice, computerChoice) {
+  if (round > totalRounds) return;
   startButton.style.display = "none";
   const result = getWinner(playerChoice, computerChoice);
-  updateScoreBoard(playerScore, computerScore);
+  updateScoreBoard();
   updateRoundCounter();
   showResultText(playerChoice, computerChoice, result);
 }
+
 function endGame() {
   if (playerScore > computerScore) {
     resultDiv.textContent = "Congratulations! You won the game! 🏆";
@@ -48,13 +51,16 @@ function endGame() {
   scoreBoard.style.display = "none";
   resultDiv.style.display = "block";
 }
-function updateScoreBoard(playerScore, computerScore) {
+
+function updateScoreBoard() {
   scoreBoard.textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
 }
+
 function updateRoundCounter() {
   roundCounter.textContent = `Round: ${round} Of ${totalRounds}`;
   round++;
 }
+
 function showResultText(playerChoice, computerChoice, result) {
   if (round > totalRounds) {
     endGame();
@@ -65,6 +71,7 @@ function showResultText(playerChoice, computerChoice, result) {
     resultDiv.textContent = `You chose ${playerChoice}, Computer chose ${computerChoice}. ${result}`;
   }
 }
+
 function startGame() {
   startButton.style.display = "none";
   round = 0;
@@ -73,7 +80,7 @@ function startGame() {
   scoreBoard.style.display = "block";
   roundCounter.style.display = "block";
   resultDiv.textContent = "Ready to play? Click a choice to begin! 🚦";
-  updateScoreBoard(playerScore, computerScore);
+  updateScoreBoard();
   updateRoundCounter();
   choicesButtons.forEach((button) => (button.disabled = false));
 }
@@ -81,15 +88,16 @@ function startGame() {
 startButton.addEventListener("click", () => {
   startGame();
 });
+
 choicesButtons.forEach((button) => {
   button.addEventListener("click", () => {
+    if (round > totalRounds) return;
     const playerChoice = button.textContent;
     const computerChoice = getComputerChoice();
     playGame(playerChoice, computerChoice);
   });
 });
 
-//initial UI setup
 choicesButtons.forEach((button) => (button.disabled = true));
 scoreBoard.style.display = "none";
 roundCounter.style.display = "none";
